@@ -48,8 +48,10 @@ public class BankService {
         }
         Account destAcount = findByRequisite(destPassport, destRequisite);
         if (destAcount != null) {
-            double beforeBalance = destAcount.getBalance();
-            destAcount.setBalance(beforeBalance + amount);
+            double beforeBalanceDestAccount = destAcount.getBalance();
+            double beforeBalanceSrcAccount = srcAccount.getBalance();
+            srcAccount.setBalance(beforeBalanceSrcAccount - amount);
+            destAcount.setBalance(beforeBalanceDestAccount + amount);
             rsl = true;
         }
         return rsl;
