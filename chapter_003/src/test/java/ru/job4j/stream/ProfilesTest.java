@@ -17,6 +17,7 @@ public class ProfilesTest {
     @Before
     public void setUp() {
         profileList.add(new Profile(new Address("New York", "Avenue", 10, 8)));
+        profileList.add(new Profile(new Address("New York", "Avenue", 10, 8)));
         profileList.add(new Profile(new Address("LosAngeles", "51-street", 1, 2)));
         profileList.add(new Profile(new Address("Miami", "Beach", 50, 7)));
         profileList.add(new Profile(new Address("Washington", "Lincoln", 20, 4)));
@@ -26,9 +27,9 @@ public class ProfilesTest {
     public void shouldCollectFourAddress() {
         List<Address> actualAddressList = Profiles.collect(profileList);
         List<Address> expectedAddressList = Arrays.asList(
-                new Address("New York", "Avenue", 10, 8),
                 new Address("LosAngeles", "51-street", 1, 2),
                 new Address("Miami", "Beach", 50, 7),
+                new Address("New York", "Avenue", 10, 8),
                 new Address("Washington", "Lincoln", 20, 4)
                 );
         assertThat(expectedAddressList, is(actualAddressList));

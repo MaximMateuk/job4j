@@ -1,6 +1,7 @@
 package ru.job4j.stream;
 
 import java.util.Objects;
+import java.util.StringJoiner;
 
 public class Address {
 
@@ -64,5 +65,15 @@ public class Address {
 
     public void setApartment(int apartment) {
         this.apartment = apartment;
+    }
+
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", Address.class.getSimpleName() + "[", "]")
+                .add("city='" + city + "'")
+                .add("street='" + street + "'")
+                .add("home=" + home)
+                .add("apartment=" + apartment)
+                .toString();
     }
 }
