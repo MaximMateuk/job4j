@@ -6,6 +6,10 @@ public class Profile {
 
     private Address address;
 
+    public Profile(Address address) {
+        this.address = address;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
